@@ -6,5 +6,5 @@ import App1 from './App1.jsx'
 import Map from './MapComponent.jsx'
 
 createRoot(document.getElementById('root')).render(
-    <App1/>
+    <Map/>
 )

@@ -6,10 +6,6 @@ import "./style.css";
 import tribals from "./img/tribals.jpg";
 import ashok from "./img/ashok1.jpeg";
 import minister from "./img/minister.png";
-import vector1 from "./img/vector-1.svg";
-import vector11 from "./img/vector-1-1.svg";
-import vector23 from "./img/vector-2-3.svg";
-import vector2 from "./img/vector-2.svg";
 
 const MainPage = () => {
   return (
@@ -60,13 +56,9 @@ const MainPage = () => {
         <header className="header-2">
           <div className="frame-2">
             <div className="text-wrapper-7">Skip to main content</div>
-            <img className="img" src={vector23} alt="vector decoration" />
             <div className="text-wrapper-7">Screen Reader Access</div>
             <div className="text-wrapper-7">Text Size</div>
             <div className="frame-3">
-              <div className="vector-wrapper">
-                <img className="vector-2" src={vector11} alt="vector small" />
-              </div>
               <div className="text-wrapper-7">A</div>
               <div className="frame-4"></div>
             </div>
@@ -89,7 +81,6 @@ const MainPage = () => {
           </p>
         </header>
 
-        <img className="vector-3" src={vector1} alt="divider line" />
         <img className="minister" src={minister} alt="Photo of the minister" />
 
         <div className="text-wrapper-8">ABOUT THE MINISTRY</div>
@@ -109,7 +100,6 @@ const MainPage = () => {
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Content managed
                 by&nbsp;&nbsp;Ministry of Tribal Affairs, Govt. of India
               </p>
-              <img className="img" src={vector2} alt="vector footer" />
               <p className="text-wrapper-7">
                 Website design and development by VanSetu
               </p>

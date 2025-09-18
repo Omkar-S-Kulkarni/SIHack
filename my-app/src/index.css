@@ -2,6 +2,31 @@ html{
   height: 100vh;
 }
 
+/* Right-align the control */
+.leaflet-control-layers {
+  right: 10px;       /* distance from right edge */
+  left: auto !important; /* override default left positioning */
+  background: transparent; /* transparent background */
+  border: none;      /* remove border */
+  box-shadow: none;  /* remove shadow */
+  padding: 5px 10px; /* optional padding */
+}
+
+/* Base layer radio buttons */
+.leaflet-control-layers-base input[type="radio"] {
+  accent-color: #007bff; /* color of radio button */
+  width: 18px;
+  height: 18px;
+}
+
+/* Labels next to radios */
+.leaflet-control-layers label {
+  font-size: 14px;
+  color: #333;
+  margin-left: 5px;
+}
+
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

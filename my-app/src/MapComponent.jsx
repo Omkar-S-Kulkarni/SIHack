@@ -25,51 +25,11 @@ L.Icon.Default.mergeOptions({
   shadowUrl: markerShadow,
 });
 
-// 🔹 Sample GeoJSON for forests
-const forestsGeoJson = {
-  type: "FeatureCollection",
-  features: [
-    {
-      type: "Feature",
-      properties: { name: "Forest A" },
-      geometry: {
-        type: "Polygon",
-        coordinates: [
-          [
-            [77.2, 28.61],
-            [77.21, 28.61],
-            [77.21, 28.62],
-            [77.2, 28.62],
-            [77.2, 28.61],
-          ],
-        ],
-      },
-    },
-  ],
-};
 
-// 🔹 Sample GeoJSON for ponds
-const pondsGeoJson = {
-  type: "FeatureCollection",
-  features: [
-    {
-      type: "Feature",
-      properties: { name: "Pond X" },
-      geometry: {
-        type: "Polygon",
-        coordinates: [
-          [
-            [77.22, 28.61],
-            [77.225, 28.61],
-            [77.225, 28.615],
-            [77.22, 28.615],
-            [77.22, 28.61],
-          ],
-        ],
-      },
-    },
-  ],
-};
+
+import landGeoJson from './assets/land.json' with { type: 'json' };
+import entitiesGeoJson from './assets/entities.json' with { type: 'json' };
+
 
 // 🔹 Component to move map smoothly when location changes
 function FlyToLocation({ position }) {
@@ -138,17 +98,17 @@ export default function MapComponent() {
           />
 
           {/* Forest overlay */}
-          <LayersControl.Overlay name="Forests">
+          <LayersControl.Overlay name="Land Owners">
             <GeoJSON
-              data={forestsGeoJson}
+              data={landGeoJson}
               style={{ color: "green", fillColor: "green", fillOpacity: 0.4 }}
             />
           </LayersControl.Overlay>
 
           {/* Pond overlay */}
-          <LayersControl.Overlay name="Ponds">
+          <LayersControl.Overlay name="Assets">
             <GeoJSON
-              data={pondsGeoJson}
+              data={entitiesGeoJson}
               style={{ color: "blue", fillColor: "blue", fillOpacity: 0.4 }}
             />
           </LayersControl.Overlay>

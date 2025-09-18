@@ -13,7 +13,7 @@ async function createUser(req, res) {
       lastName,
       role,
       designation, // optional
-      mobileNumber, // unique key
+      phoneNumber, // unique key
       address,
       password, // should be hashed before save
       state,
@@ -24,7 +24,7 @@ async function createUser(req, res) {
       lastName,
       role,
       designation,
-      mobileNumber,
+      phoneNumber,
       address,
       password,
       state,
@@ -55,14 +55,14 @@ async function listUsers(req, res) {
   }
 }
 
-// Get single user (by mobileNumber instead of id)
+// Get single user (by phoneNumber instead of id)
 async function getUser(req, res) {
   try {
     const conn = getUsersConnection();
     const User = getUserModel(conn);
 
-    // ⬇️ Changed to search by mobileNumber (unique key)
-    const user = await User.findOne({ mobileNumber: req.params.mobileNumber });
+    // ⬇️ Changed to search by phoneNumber (unique key)
+    const user = await User.findOne({ phoneNumber: req.params.phoneNumber });
 
     if (!user) return res.status(404).json({ ok: false, message: "Not found" });
     return res.json({ ok: true, user });
@@ -72,16 +72,16 @@ async function getUser(req, res) {
   }
 }
 
-// Update user (by mobileNumber)
+// Update user (by phoneNumber)
 async function updateUser(req, res) {
   try {
     const conn = getUsersConnection();
     const User = getUserModel(conn);
     const updates = req.body;
 
-    // ⬇️ Changed to update by mobileNumber
+    // ⬇️ Changed to update by phoneNumber
     const updated = await User.findOneAndUpdate(
-      { mobileNumber: req.params.mobileNumber },
+      { phoneNumber: req.params.phoneNumber },
       updates,
       { new: true }
     );
@@ -96,15 +96,15 @@ async function updateUser(req, res) {
   }
 }
 
-// Delete user (by mobileNumber)
+// Delete user (by phoneNumber)
 async function deleteUser(req, res) {
   try {
     const conn = getUsersConnection();
     const User = getUserModel(conn);
 
-    // ⬇️ Changed to delete by mobileNumber
+    // ⬇️ Changed to delete by phoneNumber
     const removed = await User.findOneAndDelete({
-      mobileNumber: req.params.mobileNumber,
+      phoneNumber: req.params.phoneNumber,
     });
 
     if (!removed)

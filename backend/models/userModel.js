@@ -5,7 +5,7 @@ const userSchema = new mongoose.Schema({
   lastName: { type: String, required: true },  // Required
   role: { type: String, required: true },      // e.g. "admin", "user"
   designation: { type: String, default: "" },  // Optional
-  mobileNumber: { type: String, required: true, unique: true }, // Contact
+  phoneNumber: { type: String, required: true, unique: true }, // Contact
   address: { type: String, required: true },   // Required
   password: { type: String, required: true },  // Store hashed password
   state: { type: String, required: true },     // Required

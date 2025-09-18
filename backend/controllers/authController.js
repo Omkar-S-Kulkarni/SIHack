@@ -1,7 +1,7 @@
 const { getUsersConnection } = require('../config/db');
 const getUserModel = require('../models/userModel');
 const { saveOtpFor, verifyOtp } = require('../utils/otpService');
-const { sendEmail, sendSmsViaTwilio } = require('../utils/senders');
+const { sendEmail, sendSmsViaTwilio } = require('../utils/sender');
 const jwt = require('jsonwebtoken');
 const { v4: uuidv4 } = require('uuid');
 

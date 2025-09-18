@@ -5,13 +5,13 @@ const { connectDatabases } = require("./config/db");
 
 const aiRoutes = require("./routes/aiRoutes");
 const authRoutes = require("./routes/authRoutes");
-const usersRoutes = require("./routes/usersRoutes");
-const locationsRoutes = require("./routes/locationsRoutes");
+const usersRoutes = require("./routes/userRoutes");
+const locationsRoutes = require("./routes/locationRoutes");
 
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use(bodyParser.json());
+
 
 // Connect to both DBs and expose the connections (models will use them)
 connectDatabases()
@@ -22,7 +22,7 @@ connectDatabases()
   });
 
 // Routes
-app.use("/api/ai", aiRoutes);
+app.use("/api/ai", aiRoutes);//
 app.use("/api/auth", authRoutes);
 app.use("/api/users", usersRoutes);
 app.use("/api/locations", locationsRoutes);

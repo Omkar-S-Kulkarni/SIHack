@@ -1,9 +1,8 @@
 /* src/styles/Map.css */
 .mapWrapper {
-  overflow: "hidden";
-  border:2px solid red;
+
   width: 50%;
-  height: 50vh; /* Full screen map */
+  height: 10%; /* Full screen map */
 }
 .map {
   width: 100%;

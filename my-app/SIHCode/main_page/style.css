@@ -1,0 +1,120 @@
+.main-page {
+  align-items: start;
+  background-color: #ffffff;
+  display: grid;
+  justify-items: center;
+  width: 100vw;
+}
+
+.main-page .div-2 {
+  background-color: #ffffff;
+  height: 1209px;
+  overflow: hidden;
+  position: relative;
+  width: 1440px;
+}
+
+.main-page .pic {
+  background-image: url(./tribals-1.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  border: 1px solid;
+  border-color: #260404;
+  height: 400px;
+  left: 0;
+  position: absolute;
+  top: 144px;
+  width: 1440px;
+}
+
+.main-page .map {
+  background-color: #747171;
+  height: 400px;
+  left: 16px;
+  position: absolute;
+  top: 581px;
+  width: 703px;
+}
+
+.main-page .vector-2 {
+  height: 526px;
+  left: 766px;
+  position: absolute;
+  top: 568px;
+  width: 1px;
+}
+
+.main-page .header-2 {
+  height: 100px;
+  left: 0;
+  position: absolute;
+  top: 44px;
+  width: 1440px;
+}
+
+.main-page .design-component-instance-node {
+  left: 0 !important;
+  position: absolute !important;
+  top: 0 !important;
+}
+
+.main-page .header-3 {
+  background-image: url(./vector-3.svg) !important;
+}
+
+.main-page .header-4 {
+  border-color: unset !important;
+}
+
+.main-page .vector-3 {
+  height: 1px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 563px;
+  width: 1440px;
+}
+
+.main-page .minister {
+  aspect-ratio: 0.79;
+  height: 351px;
+  left: 1145px;
+  object-fit: cover;
+  position: absolute;
+  top: 630px;
+  width: 276px;
+}
+
+.main-page .text-wrapper-2 {
+  color: #000000;
+  font-family: "Poppins-Medium", Helvetica;
+  font-size: 26px;
+  font-weight: 500;
+  height: 43px;
+  left: 800px;
+  letter-spacing: 0;
+  line-height: 42.9px;
+  position: absolute;
+  top: 580px;
+  white-space: nowrap;
+}
+
+.main-page .p {
+  color: #000000;
+  font-family: "Poppins-Medium", Helvetica;
+  font-size: 20px;
+  font-weight: 500;
+  height: 212px;
+  left: 784px;
+  letter-spacing: 0;
+  line-height: 33.0px;
+  position: absolute;
+  top: 707px;
+  width: 354px;
+}
+
+.main-page .footer-instance {
+  left: 0 !important;
+  position: absolute !important;
+  top: 1101px !important;
+}

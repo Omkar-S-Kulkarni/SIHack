@@ -40,7 +40,7 @@ const MainPage = () => {
           </div>
 
           <div className="text-wrapper-4">Public Grievances</div>
-          <div className="text-wrapper-5">Login</div>
+          <a href="/Login" className="text-wrapper-5">Login</a>
 
           <div className="frame">
             <img className="ashok" src={ashok} alt="Ashok Emblem" />
@@ -111,4 +111,8 @@ const MainPage = () => {
   );
 };
 
+
 export default MainPage;
+
+
+

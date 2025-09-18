@@ -2,6 +2,7 @@ import React from "react";
 import "./globals.css";
 import "./styleguide.css";
 import "./style.css";
+import Map from 'C:/Users/Harsha Prasad/SIHack/my-app/src/MapComponent'
 
 const CitizenDashboard = () => {
   return (
@@ -44,7 +45,7 @@ const CitizenDashboard = () => {
 
       <div className="header-2">
         <div className="navbar">
-          <div className="text-wrapper-2">Home</div>
+          <a href="/">Home</a>
           <div className="text-wrapper-3">Dashboard</div>
           <div className="text-wrapper-2">About</div>
           <div className="text-wrapper-2">Act &amp; Rule</div>
@@ -93,7 +94,7 @@ const CitizenDashboard = () => {
         <div className="frame-25"><div className="text-wrapper-26">Current Status</div></div>
       </div>
 
-      <div className="map"></div>
+      <div className="map"><Map></Map></div>
 
       <div className="implementation">
         <div className="text-wrapper-27">CURRENT STATUS OF IMPLEMENTATION</div>

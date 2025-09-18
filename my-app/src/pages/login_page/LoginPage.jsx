@@ -40,7 +40,7 @@ export default function LoginPage() {
           <div className="logo-text">Ministry of Tribal Affairs</div>
         </div>
         <nav className="navbar">
-          <a href="#" className="nav-item">Home</a>
+          <a href="/" className="nav-item">Home</a>
           <a href="#" className="nav-item">Dashboard</a>
           <a href="#" className="nav-item">About</a>
           <a href="#" className="nav-item">Act and Rule</a>
@@ -64,9 +64,9 @@ export default function LoginPage() {
               <div className="captcha-image">uj22nL</div>
               <input type="text" placeholder="Captcha" required />
             </div>
-            <button type="submit" className="login-btn">Login</button>
+            <a href = "/CitizenDashboard">Login</a>
             <p className="signup-link">
-              Not a member? <a href="#">Sign up</a>
+              Not a member? <a href="/SignUpPage">Sign up</a>
             </p>
           </form>
         </div>

@@ -6,6 +6,7 @@ import "./style.css";
 import tribals from "./img/tribals.jpg";
 import ashok from "./img/ashok1.jpeg";
 import minister from "./img/minister.png";
+import Map from 'C:/Users/Harsha Prasad/SIHack/my-app/src/MapComponent'
 
 const MainPage = () => {
   return (
@@ -17,7 +18,7 @@ const MainPage = () => {
           alt="Main photograph of tribal life or community"
         />
 
-        <div className="map"></div>
+        <div className="map"><Map/></div>
         <hr />
 
         {/* Header */}

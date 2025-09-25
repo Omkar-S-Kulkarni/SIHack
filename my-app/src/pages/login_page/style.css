@@ -170,31 +170,23 @@ body {
     font-family: "Poppins-Medium", Helvetica, sans-serif;
 }
 
-/* Captcha Section */
-.captcha-row {
-    display: flex;
-    gap: 15px;
-    width: 100%;
-    margin-bottom: 30px;
-}
 
-.captcha-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 68px;
-    border: 1px solid #000000;
+.OTP-btn {
+    width: 200px;
+    height: 60px;
+    background-color: #1c2a78;
+    color: #ffffff;
+    border: none;
     border-radius: 16px;
-    font-family: "Plaster-Regular", monospace;
-    font-size: 40px;
-    color: #1c2a78;
-    user-select: none;
-}
-
-.captcha-row input {
-    flex: 1;
-    margin-bottom: 0; /* Override margin from general input style */
+    font-size: 25px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+     /* New styles for centering text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Login Button */
@@ -210,6 +202,15 @@ body {
     cursor: pointer;
     margin-bottom: 20px;
     transition: background-color 0.3s ease;
+     /* New styles for centering text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
 }
 
 .login-btn:hover {

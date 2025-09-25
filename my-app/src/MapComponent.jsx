@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import {
   MapContainer,
   TileLayer,
@@ -6,16 +7,18 @@ import {
   LayersControl,
   GeoJSON,
   useMap,
-  useMapEvents
+  useMapEvents,
 } from "react-leaflet";
-import React, { useState, useEffect } from "react";
 import "leaflet/dist/leaflet.css";
-import styles from "./MapComponent.module.css"; // custom CSS
-
 import L from "leaflet";
+
+import styles from "./MapComponent.module.css"; // your custom CSS
 import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
+
+import landGeoJson from "./assets/land.json" with { type: "json" };
+import entitiesGeoJson from "./assets/entities.json" with { type: "json" };
 
 // ✅ Fix default Leaflet marker in React
 delete L.Icon.Default.prototype._getIconUrl;
@@ -25,29 +28,78 @@ L.Icon.Default.mergeOptions({
   shadowUrl: markerShadow,
 });
 
-
-
-import landGeoJson from './assets/land.json' with { type: 'json' };
-import entitiesGeoJson from './assets/entities.json' with { type: 'json' };
-
-
-// 🔹 Component to move map smoothly when location changes
+// 🔹 Component to smoothly fly to a location
 function FlyToLocation({ position }) {
   const map = useMap();
 
   useEffect(() => {
     if (position) {
-      map.flyTo(position, 16); // zoom = 16
+      map.flyTo(position, 16);
     }
   }, [position, map]);
 
   return null;
 }
 
+// 🔹 Component to update position on map click
+function LocationOnClick({ setPosition }) {
+  useMapEvents({
+    click(e) {
+      setPosition([e.latlng.lat, e.latlng.lng]);
+    },
+  });
+  return null;
+}
+
+// 🔹 Function to style features based on their properties
+function getFeatureStyle(feature) {
+  const props = feature.properties;
+
+  // Natural features
+  if (props.natural) {
+    switch (props.natural) {
+      case "wood":
+        return { color: "green", fillColor: "green", fillOpacity: 0.4 };
+      case "water":
+        return { color: "blue", fillColor: "blue", fillOpacity: 0.4 };
+      default:
+        return { color: "gray", fillColor: "gray", fillOpacity: 0.4 };
+    }
+  }
+
+  // Landuse features
+  if (props.landuse) {
+    switch (props.landuse) {
+      case "forest":
+        return { color: "darkgreen", fillColor: "darkgreen", fillOpacity: 0.4 };
+      case "residential":
+        return { color: "orange", fillColor: "orange", fillOpacity: 0.4 };
+      default:
+        return { color: "gray", fillColor: "gray", fillOpacity: 0.4 };
+    }
+  }
+
+  // Highway features (lines)
+  if (props.highway) {
+    switch (props.highway) {
+      case "trunk":
+        return { color: "red", weight: 3 };
+      case "residential":
+        return { color: "yellow", weight: 2 };
+      default:
+        return { color: "gray", weight: 2 };
+    }
+  }
+
+  // fallback
+  return { color: "black", fillColor: "black", fillOpacity: 0.4 };
+}
+
+// 🔹 Main Map Component
 export default function MapComponent() {
   const [position, setPosition] = useState(null);
 
-  // Function: Get current location
+  // Function to get current location
   const goToCurrentLocation = () => {
     if (!navigator.geolocation) {
       alert("Geolocation is not supported by your browser.");
@@ -69,25 +121,14 @@ export default function MapComponent() {
     );
   };
 
-  function LocationOnClick({ setPosition }) {
-  useMapEvents({
-    click(e) {
-      setPosition([e.latlng.lat, e.latlng.lng]); // update state on click
-    },
-  });
-  return null;
-}
-
   return (
     <div style={{ height: "100vh", width: "100%", position: "relative" }}>
-
       <MapContainer
         center={[20.5937, 78.9629]} // India center
         zoom={5}
         scrollWheelZoom={true}
         className={styles.map}
       >
-
         <LocationOnClick setPosition={setPosition} />
 
         <LayersControl position="topright">
@@ -97,24 +138,18 @@ export default function MapComponent() {
             attribution="Tiles &copy; Esri"
           />
 
-          {/* Forest overlay */}
+          {/* Land GeoJSON overlay */}
           <LayersControl.Overlay name="Land Owners">
-            <GeoJSON
-              data={landGeoJson}
-              style={{ color: "green", fillColor: "green", fillOpacity: 0.4 }}
-            />
+            <GeoJSON data={landGeoJson} style={getFeatureStyle} />
           </LayersControl.Overlay>
 
-          {/* Pond overlay */}
+          {/* Entities GeoJSON overlay */}
           <LayersControl.Overlay name="Assets">
-            <GeoJSON
-              data={entitiesGeoJson}
-              style={{ color: "blue", fillColor: "blue", fillOpacity: 0.4 }}
-            />
+            <GeoJSON data={entitiesGeoJson} style={getFeatureStyle} />
           </LayersControl.Overlay>
         </LayersControl>
 
-        {/* ✅ Dynamic marker for current location */}
+        {/* Dynamic marker for current location */}
         {position && (
           <>
             <Marker position={position}>
@@ -125,7 +160,7 @@ export default function MapComponent() {
         )}
       </MapContainer>
 
-      {/* ✅ Floating button to get current location */}
+      {/* Floating button to get current location */}
       <button
         onClick={goToCurrentLocation}
         style={{
@@ -140,7 +175,7 @@ export default function MapComponent() {
           fontSize: "18px",
           cursor: "pointer",
           boxShadow: "0 2px 6px rgba(0,0,0,0.3)",
-          zIndex:999,
+          zIndex: 999,
         }}
       >
         📍

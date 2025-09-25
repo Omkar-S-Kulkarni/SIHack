@@ -57,14 +57,15 @@ export default function LoginPage() {
         <div className="login-box">
           <form>
             <h1>Login</h1>
-            <p>Please enter your Username and Password</p>
-            <input type="text" placeholder="User ID" required />
-            <input type="password" placeholder="Password" required />
-            <div className="captcha-row">
-              <div className="captcha-image">uj22nL</div>
-              <input type="text" placeholder="Captcha" required />
+            <p>Please enter your Phone number</p>
+            <input type="text" placeholder="Phone Number" required />
+            <div className = "OTP-btn">
+              <a href = "#" className = "OTP-btn">Send OTP</a>
             </div>
-            <a href = "/CitizenDashboard">Login</a>
+            <input type="password" placeholder="OTP" required />
+            <div className="login-btn">
+              <a href = "/CitizenDashboard" className="login-btn">Login</a>
+            </div>
             <p className="signup-link">
               Not a member? <a href="/SignUpPage">Sign up</a>
             </p>

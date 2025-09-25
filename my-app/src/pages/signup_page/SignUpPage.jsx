@@ -38,7 +38,7 @@ export default function SignUpPage() {
           <div className="logo-text">Ministry of Tribal Affairs</div>
         </div>
         <nav className="navbar">
-          <a href="#" className="nav-item">Home</a>
+          <a href="/" className="nav-item">Home</a>
           <a href="#" className="nav-item">Dashboard</a>
           <a href="#" className="nav-item">About</a>
           <a href="#" className="nav-item">Act and Rule</a>
@@ -64,9 +64,10 @@ export default function SignUpPage() {
                 <label htmlFor="last-name">Last Name</label>
                 <input type="text" id="last-name" placeholder="Last Name" required />
               </div>
-              <div className="form-group">
-                <label htmlFor="username">Username</label>
-                <input type="text" id="username" placeholder="Username" required />
+              
+             <div className="form-group">
+                <label htmlFor="mobile">Mobile Number</label>
+                <input type="tel" id="mobile" placeholder="Mobile Number" required />
               </div>
 
               <div className="form-group">
@@ -89,10 +90,6 @@ export default function SignUpPage() {
                 <input type="text" id="designation" placeholder="Designation" />
               </div>
 
-              <div className="form-group">
-                <label htmlFor="mobile">Mobile Number</label>
-                <input type="tel" id="mobile" placeholder="Mobile Number" required />
-              </div>
 
               <div className="form-group address-group">
                 <label htmlFor="address">Address</label>
@@ -100,9 +97,26 @@ export default function SignUpPage() {
               </div>
             </div>
 
+
+              {/* ... other form-grid elements ... */}
+
+              {/* Start of the new OTP section container */}
+              <div className="otp-section">
+                  <div className="form-group">
+                      <label htmlFor="mobile-otp">Enter OTP</label>
+                      <input type="tel" id="mobile-otp" placeholder="OTP" required />
+                  </div>
+
+                  <div className="OTP-btn">
+                      <a href="#" className="OTP-btn-link">Send OTP</a>
+                  </div>
+              </div>
+              {/* End of the new OTP section container */}
+
+              {/* ... your other buttons (Reset, Submit) ... */}
             <div className="button-container">
               <button type="reset" className="reset-btn">Reset</button>
-              <button type="submit" className="submit-btn">Submit</button>
+              <a href="/Login" className="submit-btn">Submit</a>
             </div>
           </form>
         </div>

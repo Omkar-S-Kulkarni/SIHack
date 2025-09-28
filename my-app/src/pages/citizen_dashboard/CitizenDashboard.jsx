@@ -3,6 +3,8 @@ import "./globals.css";
 import "./styleguide.css";
 import "./style.css";
 import Map from 'C:/Users/Harsha Prasad/SIHack/my-app/src/MapComponent'
+import Citizen from './Citizen'; // <-- IMPORT IT
+import Implementation from './Implementation';
 
 const CitizenDashboard = () => {
   return (
@@ -51,7 +53,7 @@ const CitizenDashboard = () => {
           <div className="text-wrapper-2">Act &amp; Rule</div>
           <div className="text-wrapper-2">Contact</div>
           <div className="text-wrapper-2">Feedback</div>
-          <div className="text-wrapper-2">Meri Yojna Book</div>
+          <a href = "/MyYojnaBook" className="text-wrapper-2">Meri Yojna Book</a>
         </div>
         <div className="text-wrapper-4">Public Grievances</div>
         <div className="text-wrapper-5">Logout</div>
@@ -70,41 +72,12 @@ const CitizenDashboard = () => {
       </div>
 
       {/* CITIZEN INFORMATION section */}
-      <div className="citizen">
-        <div className="text-wrapper-7">CITIZEN INFORMATION</div>
-        <div className="frame-6"><div className="text-wrapper-8">Name</div></div>
-        <div className="frame-7"><div className="text-wrapper-9">Community</div></div>
-        <div className="frame-8"><div className="text-wrapper-10">Land Size</div></div>
-        <div className="frame-9"><div className="text-wrapper-11">Village</div></div>
-        <div className="frame-10"><div className="text-wrapper-12">Taluka</div></div>
-        <div className="frame-11"><div className="text-wrapper-11">District</div></div>
-        <div className="frame-12"><div className="text-wrapper-13">State</div></div>
-        <div className="frame-13"><div className="text-wrapper-14">Document ID</div></div>
-        <div className="frame-14"><div className="text-wrapper-15">Claim Type</div></div>
-        <div className="frame-15"><div className="text-wrapper-16">Current Status</div></div>
-        <div className="frame-16"><div className="text-wrapper-17">Name</div></div>
-        <div className="frame-17"><div className="text-wrapper-18">Community</div></div>
-        <div className="frame-18"><div className="text-wrapper-19">Land Size</div></div>
-        <div className="frame-19"><div className="text-wrapper-20">Village</div></div>
-        <div className="frame-20"><div className="text-wrapper-21">Taluka</div></div>
-        <div className="frame-21"><div className="text-wrapper-22">District</div></div>
-        <div className="frame-22"><div className="text-wrapper-23">State</div></div>
-        <div className="frame-23"><div className="text-wrapper-24">Document ID</div></div>
-        <div className="frame-24"><div className="text-wrapper-25">Claim Type</div></div>
-        <div className="frame-25"><div className="text-wrapper-26">Current Status</div></div>
-      </div>
+      <Citizen/>
 
       <div className="map"><Map></Map></div>
 
-      <div className="implementation">
-        <div className="text-wrapper-27">CURRENT STATUS OF IMPLEMENTATION</div>
-        <div className="claim-received"><div className="text-wrapper-28">Total claims received</div></div>
-        <div className="claim-approved"><div className="text-wrapper-28">Total claims approved</div></div>
-        <div className="claim-rejected"><div className="text-wrapper-28">Total claims rejected</div></div>
-        <div className="claim-received-data"></div>
-        <div className="claim-approved-data"></div>
-        <div className="claim-rejected-data"></div>
-      </div>
+      {/*implementation part*/}
+      <Implementation/>
 
       <div className="searching">
         <div className="searching-background"><img className="star" src="img/star.svg" /></div>

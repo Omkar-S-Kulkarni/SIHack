@@ -82,18 +82,34 @@ export default function SignUpPage() {
                 </select>
               </div>
               <div className="form-group">
+                <label htmlFor="designation">Designation</label>
+                <input type="text" id="designation" placeholder="Designation(official)" />
+              </div>
+              <div className="form-group">
+                <label htmlFor="community">Community Name</label>
+                <input type="text" id="community" placeholder="Community Name" />
+              </div>
+              <div className="form-group">
+                <label htmlFor="village">Village</label>
+                <input type="text" id="village" placeholder="Village" required />
+              </div><div className="form-group">
+                <label htmlFor="taluka">Taluka</label>
+                <input type="text" id="taluka" placeholder="Taluka" required />
+              </div>
+              <div className="form-group">
+                <label htmlFor="district">District</label>
+                <input type="text" id="district" placeholder="District" required />
+              </div>
+              <div className="form-group">
                 <label htmlFor="state">State</label>
                 <input type="text" id="state" placeholder="State" required />
               </div>
-              <div className="form-group">
-                <label htmlFor="designation">Designation</label>
-                <input type="text" id="designation" placeholder="Designation" />
-              </div>
+              
 
 
               <div className="form-group address-group">
                 <label htmlFor="address">Address</label>
-                <textarea id="address" placeholder="Enter your full address"></textarea>
+                <textarea id="address" placeholder="Enter your address (with landmark - optional)"></textarea>
               </div>
             </div>
 
@@ -116,7 +132,7 @@ export default function SignUpPage() {
               {/* ... your other buttons (Reset, Submit) ... */}
             <div className="button-container">
               <button type="reset" className="reset-btn">Reset</button>
-              <a href="/Login" className="submit-btn">Submit</a>
+              <a href="/OfficialDashboard" className="submit-btn">Submit</a>
             </div>
           </form>
         </div>
